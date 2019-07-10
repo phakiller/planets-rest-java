@@ -1,0 +1,14 @@
+server:
+  port: 6606
+
+spring:
+  application:
+    name: planets
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      username: planets
+      password: planets_password
+      authentication-database: planets
+      database: planets
