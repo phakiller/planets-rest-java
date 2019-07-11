@@ -1,5 +1,6 @@
 package com.starwars.planets.port.adapters.repositories.planet;
 
+import com.starwars.planets.domain.model.planet.Planet;
 import com.starwars.planets.domain.service.planet.PlanetRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,4 +12,10 @@ public class PlanetRepositoryMongoDB implements PlanetRepository {
     public PlanetRepositoryMongoDB(PlanetRepositorySpringData planetRepositorySpringData) {
         this.planetRepositorySpringData = planetRepositorySpringData;
     }
+
+    @Override
+    public Planet save(Planet planet) {
+        return planetRepositorySpringData.save(planet);
+    }
+
 }
