@@ -1,7 +1,10 @@
 package com.starwars.planets.domain.service.swapi;
 
+import com.starwars.planets.domain.exceptions.NotFoundException;
 import com.starwars.planets.domain.model.swapi.SwapiPlanetPage;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class SwapiDomainService implements SwapiService {
@@ -13,7 +16,8 @@ public class SwapiDomainService implements SwapiService {
     }
 
     public SwapiPlanetPage getPlanetsPage(Integer page, String url) {
-        SwapiPlanetPage swapiPlanetPage = swapiPlanetRepository.getPlanetsPage(page);
+        SwapiPlanetPage swapiPlanetPage = Optional.ofNullable(swapiPlanetRepository.getPlanetsPage(page))
+                .orElseThrow(NotFoundException::new);
         setNextWithApplicationUri(swapiPlanetPage, page, url);
         return swapiPlanetPage;
     }
