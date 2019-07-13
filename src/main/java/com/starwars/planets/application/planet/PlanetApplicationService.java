@@ -26,8 +26,9 @@ public class PlanetApplicationService {
         return PlanetFactory.toPlanetDTO(planet);
     }
 
-    public List<PlanetDTO> getPlanets() {
-        return planetService.getPlanets().stream()
+    public List<PlanetDTO> getPlanets(String name) {
+        List<Planet> planets = name != null ? planetService.findByName(name) : planetService.getPlanets();
+        return planets.stream()
                 .map(PlanetFactory::toPlanetDTO).collect(toList());
     }
 
