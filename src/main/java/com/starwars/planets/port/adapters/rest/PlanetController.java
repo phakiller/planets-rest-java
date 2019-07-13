@@ -29,8 +29,8 @@ public class PlanetController {
     }
 
     @GetMapping("")
-    public ResponseEntity<List<PlanetDTO>> getPlanets() {
-        return ok().body(planetApplicationService.getPlanets());
+    public ResponseEntity<List<PlanetDTO>> getPlanets(@RequestParam(required = false) String name) {
+        return ok().body(planetApplicationService.getPlanets(name));
     }
 
 }
