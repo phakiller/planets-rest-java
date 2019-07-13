@@ -12,4 +12,6 @@ public interface PlanetService {
 
     List<Planet> findByName(String name);
 
+    Planet findById(String planetId);
+
 }
