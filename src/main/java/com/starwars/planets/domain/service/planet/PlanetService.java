@@ -10,4 +10,6 @@ public interface PlanetService {
 
     List<Planet> getPlanets();
 
+    List<Planet> findByName(String name);
+
 }

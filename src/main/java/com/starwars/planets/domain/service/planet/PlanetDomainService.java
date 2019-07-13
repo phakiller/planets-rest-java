@@ -23,4 +23,8 @@ public class PlanetDomainService implements PlanetService {
         return planetRepositoryMongoDB.findAll();
     }
 
+    public List<Planet> findByName(String name) {
+        return planetRepositoryMongoDB.findByNameMatchesRegexAndIgnoreCase(name);
+    }
+
 }
