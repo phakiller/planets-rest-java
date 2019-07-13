@@ -36,4 +36,8 @@ public class PlanetApplicationService {
         return PlanetFactory.toPlanetDTO(planetService.findById(planetId));
     }
 
+    public void deletePlanetById(String planetId) {
+        planetService.deleteById(planetId);
+    }
+
 }
