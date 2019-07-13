@@ -10,4 +10,6 @@ public interface PlanetRepository {
 
     List<Planet> findAll();
 
+    List<Planet> findByNameMatchesRegexAndIgnoreCase(String name);
+
 }
