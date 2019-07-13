@@ -15,4 +15,6 @@ public interface PlanetRepository {
 
     Optional<Planet> findById(String planetId);
 
+    void deleteById(String planetId);
+
 }

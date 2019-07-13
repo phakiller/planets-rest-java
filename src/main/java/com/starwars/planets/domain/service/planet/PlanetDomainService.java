@@ -34,4 +34,8 @@ public class PlanetDomainService implements PlanetService {
         return planetRepositoryMongoDB.findByNameMatchesRegexAndIgnoreCase(name);
     }
 
+    public void deleteById(String planetId) {
+        planetRepositoryMongoDB.deleteById(planetId);
+    }
+
 }
