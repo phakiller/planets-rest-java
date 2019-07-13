@@ -9,7 +9,8 @@ public interface PlanetRetrofitService {
 
     @GET("planets")
     Call<SwapiPlanetPage> getPlanets(
-            @Query("page") Integer page
+            @Query("page") Integer page,
+            @Query("search") String name
     );
 
 }
