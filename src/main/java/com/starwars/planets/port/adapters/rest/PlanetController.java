@@ -38,4 +38,10 @@ public class PlanetController {
         return ok().body(planetApplicationService.findPlanetById(planetId));
     }
 
+    @DeleteMapping("/{planetId}")
+    public ResponseEntity deletePlanetById(@PathVariable String planetId) {
+        planetApplicationService.deletePlanetById(planetId);
+        return ok().build();
+    }
+
 }
