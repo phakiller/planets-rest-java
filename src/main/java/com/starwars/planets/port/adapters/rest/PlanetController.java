@@ -33,4 +33,9 @@ public class PlanetController {
         return ok().body(planetApplicationService.getPlanets(name));
     }
 
+    @GetMapping("/{planetId}")
+    public ResponseEntity<PlanetDTO> findPlanetById(@PathVariable String planetId) {
+        return ok().body(planetApplicationService.findPlanetById(planetId));
+    }
+
 }
