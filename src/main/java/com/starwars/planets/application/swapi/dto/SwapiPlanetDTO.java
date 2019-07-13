@@ -13,9 +13,9 @@ import java.util.List;
 public class SwapiPlanetDTO implements Serializable {
 
     private String name;
-    private Integer rotationPeriod;
-    private Integer orbitalPeriod;
-    private Integer diameter;
+    private String rotationPeriod;
+    private String orbitalPeriod;
+    private String diameter;
     private String climate;
     private String gravity;
     private String terrain;

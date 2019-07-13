@@ -13,16 +13,16 @@ import java.util.List;
 public class SwapiPlanet {
 
     @SerializedName("rotation_period")
-    private Integer rotationPeriod;
+    private String rotationPeriod;
 
     @SerializedName("orbital_period")
-    private Integer orbitalPeriod;
+    private String orbitalPeriod;
 
     @SerializedName("surface_water")
     private String surfaceWater;
 
     private String name;
-    private Integer diameter;
+    private String diameter;
     private String climate;
     private String gravity;
     private String terrain;
