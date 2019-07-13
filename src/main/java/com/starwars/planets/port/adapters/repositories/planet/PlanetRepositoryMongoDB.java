@@ -36,4 +36,8 @@ public class PlanetRepositoryMongoDB implements PlanetRepository {
         return planetRepositorySpringData.findById(planetId);
     }
 
+    public void deleteById(String planetId) {
+        planetRepositorySpringData.deleteById(planetId);
+    }
+
 }
