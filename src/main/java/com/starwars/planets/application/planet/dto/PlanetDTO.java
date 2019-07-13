@@ -17,5 +17,6 @@ public class PlanetDTO implements Serializable {
     private String name;
     private String climate;
     private String terrain;
+    private Integer numberOfMovies;
 
 }
