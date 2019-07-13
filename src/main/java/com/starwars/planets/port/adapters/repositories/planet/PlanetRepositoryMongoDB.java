@@ -25,4 +25,9 @@ public class PlanetRepositoryMongoDB implements PlanetRepository {
         return planetRepositorySpringData.findAll();
     }
 
+    @Override
+    public List<Planet> findByNameMatchesRegexAndIgnoreCase(String name) {
+        return planetRepositorySpringData.findByNameMatchesRegexAndIgnoreCase(name);
+    }
+
 }
