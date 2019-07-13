@@ -32,4 +32,8 @@ public class PlanetApplicationService {
                 .map(PlanetFactory::toPlanetDTO).collect(toList());
     }
 
+    public PlanetDTO findPlanetById(String planetId) {
+        return PlanetFactory.toPlanetDTO(planetService.findById(planetId));
+    }
+
 }
