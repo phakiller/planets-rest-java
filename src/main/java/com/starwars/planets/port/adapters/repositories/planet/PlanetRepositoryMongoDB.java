@@ -5,6 +5,7 @@ import com.starwars.planets.domain.service.planet.PlanetRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class PlanetRepositoryMongoDB implements PlanetRepository {
@@ -28,6 +29,11 @@ public class PlanetRepositoryMongoDB implements PlanetRepository {
     @Override
     public List<Planet> findByNameMatchesRegexAndIgnoreCase(String name) {
         return planetRepositorySpringData.findByNameMatchesRegexAndIgnoreCase(name);
+    }
+
+    @Override
+    public Optional<Planet> findById(String planetId) {
+        return planetRepositorySpringData.findById(planetId);
     }
 
 }
