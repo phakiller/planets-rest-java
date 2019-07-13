@@ -30,4 +30,8 @@ public class SwapiDomainService implements SwapiService {
             swapiPlanetPage.setPrevious(uri.concat("?page=" + (page - 1)));
     }
 
+    public SwapiPlanetPage findByName(String name) {
+        return swapiPlanetRepository.findByName(name);
+    }
+
 }

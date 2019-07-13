@@ -6,4 +6,6 @@ public interface SwapiService {
 
     SwapiPlanetPage getPlanetsPage(Integer page, String url);
 
+    SwapiPlanetPage findByName(String name);
+
 }

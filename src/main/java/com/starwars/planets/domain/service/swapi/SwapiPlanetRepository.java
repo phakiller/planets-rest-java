@@ -7,4 +7,6 @@ public interface SwapiPlanetRepository {
 
     SwapiPlanetPage getPlanetsPage(Integer page);
 
+    SwapiPlanetPage findByName(String name);
+
 }
