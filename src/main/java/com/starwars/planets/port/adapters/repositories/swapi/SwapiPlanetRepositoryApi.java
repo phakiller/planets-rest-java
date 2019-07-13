@@ -17,7 +17,16 @@ public class SwapiPlanetRepositoryApi implements SwapiPlanetRepository {
 
     public SwapiPlanetPage getPlanetsPage(Integer page) {
         try {
-            return planetRetrofitService.getPlanets(page).execute().body();
+            return planetRetrofitService.getPlanets(page, null).execute().body();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public SwapiPlanetPage findByName(String name) {
+        try {
+            return planetRetrofitService.getPlanets(null, name).execute().body();
         } catch (IOException e) {
             e.printStackTrace();
         }
