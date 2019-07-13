@@ -15,6 +15,7 @@ public final class PlanetFactory {
                 .name(planetDTO.getName())
                 .climate(planetDTO.getClimate())
                 .terrain(planetDTO.getTerrain())
+                .numberOfMovies(planetDTO.getNumberOfMovies())
                 .build();
     }
 
@@ -24,6 +25,7 @@ public final class PlanetFactory {
                 .name(planet.getName())
                 .climate(planet.getClimate())
                 .terrain(planet.getTerrain())
+                .numberOfMovies(planet.getNumberOfMovies())
                 .build();
     }
 
