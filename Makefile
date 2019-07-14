@@ -5,10 +5,10 @@ buildgradlelocal:
 	gradle build
 
 buildimage:
-	docker build -t planets-java .
+	[ -f ./build/libs/planets-0.0.1-SNAPSHOT.jar ] && docker build -t planets-java . || echo "Please, make the build first"
 
 drun:
-	[ -f ./build/libs/planets-0.0.1-SNAPSHOT.jar ] && docker-compose up -d --remove-orphans || echo "Please, make the build first"
+	docker-compose up -d --remove-orphans
 
 dstop:
 	docker-compose down
