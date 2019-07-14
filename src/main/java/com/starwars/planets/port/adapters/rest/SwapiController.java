@@ -3,10 +3,7 @@ package com.starwars.planets.port.adapters.rest;
 import com.starwars.planets.application.swapi.SwapiApplicationService;
 import com.starwars.planets.application.swapi.dto.SwapiPlanetPageDTO;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -22,6 +19,7 @@ public class SwapiController {
         this.service = service;
     }
 
+    @CrossOrigin
     @GetMapping("/planets")
     public ResponseEntity<SwapiPlanetPageDTO> swapiPlanetPage(
             HttpServletRequest request,

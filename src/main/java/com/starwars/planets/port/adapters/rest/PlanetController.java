@@ -22,12 +22,14 @@ public class PlanetController {
         this.planetApplicationService = planetApplicationService;
     }
 
+    @CrossOrigin
     @PostMapping("")
     public ResponseEntity<PlanetDTO> savePlanet(@RequestBody PlanetCommand planetCommand) {
         PlanetDTO planetDTO = planetApplicationService.savePlanet(planetCommand);
         return status(CREATED).body(planetDTO);
     }
 
+    @CrossOrigin
     @GetMapping("")
     public ResponseEntity<Page<PlanetDTO>> getPlanets(
             @RequestParam(required = false) String name,
@@ -37,11 +39,13 @@ public class PlanetController {
         return ok().body(planetApplicationService.getPlanets(name, PageRequest.of(pageNumber, pageSize)));
     }
 
+    @CrossOrigin
     @GetMapping("/{planetId}")
     public ResponseEntity<PlanetDTO> findPlanetById(@PathVariable String planetId) {
         return ok().body(planetApplicationService.findPlanetById(planetId));
     }
 
+    @CrossOrigin
     @DeleteMapping("/{planetId}")
     public ResponseEntity deletePlanetById(@PathVariable String planetId) {
         planetApplicationService.deletePlanetById(planetId);
