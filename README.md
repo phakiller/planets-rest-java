@@ -99,6 +99,32 @@ Utilizando a interface da Documentação, é possivel interagir com todas as rot
 
 
 
+#### Rotas
+
+* **GET** /planets: Devolve uma lista paginada com os planetas persistidos até o momento, ela também aceita uma *QueryString*, **name**, que por sua vez possibilita a procura por planetas utilizando o nome. Para navegar entre as páginas deverá ser utilizado as *QueryString*, **pageNumber** e **pageSize**.
+
+  Obs.: A primeira página é a **0**, a segunda é a **1** e assim por diante.
+
+* **POST** /planets: Persiste um planeta novo, abaixo é possível ver o objeto esperado para ser persistido.
+
+  ```json
+  {
+      "name": "string",
+      "terrain": "string",
+      "climate": "string"
+  }
+  ```
+
+* **GET** /planets/{planetId}: Buscar um planeta especifico passando seu ID como *PathParameter*.
+
+* **DELETE** /planets/{planetId}: Exclui um planet especifico, recebendo o ID como *PathParameter*.
+
+* **GET** /swapi/planets: Retorna uma lista página diretamente do seriço SWAPI.
+
+* **GET** /health/status: Rota de Healthcheck da aplicação.
+
+  
+
 ### Número de Filmes por Planeta
 
 Na hora de criar um novo filme é feita uma requisição para [SWAPI](https://swapi.co/), se houver algum problema de conexão esse atributo ficará `null`. Se o serviço retornar mais de um Planeta durante a busca, o atributo será setado como `-1`. Se o serviço devolver apenas um planeta porém o nome for divergente do nome passado na request o atributo será setado como `-1`.
