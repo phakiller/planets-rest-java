@@ -1,0 +1,23 @@
+version: '3.0'
+
+services:
+  planets:
+    image: planets-java
+    restart: always
+    network_mode: host
+    depends_on:
+      - mongo-planets
+    ports:
+      - 6606:6606
+
+  mongo-planets:
+    image: bitnami/mongodb
+    container_name: mongo_planets
+    restart: always
+    network_mode: host
+    ports:
+      - 27017:27017
+    environment:
+      MONGODB_USERNAME: planets
+      MONGODB_PASSWORD: planets_password
+      MONGODB_DATABASE: planets
