@@ -1,16 +1,16 @@
 package com.starwars.planets.domain.service.planet;
 
 import com.starwars.planets.domain.model.planet.Planet;
-
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface PlanetService {
 
     Planet save(Planet planet);
 
-    List<Planet> getPlanets();
+    Page<Planet> getPlanets(Pageable pageable);
 
-    List<Planet> findByName(String name);
+    Page<Planet> findByName(String name, Pageable pageable);
 
     Planet findById(String planetId);
 

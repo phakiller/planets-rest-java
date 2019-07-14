@@ -6,9 +6,10 @@ import com.starwars.planets.domain.model.swapi.SwapiPlanet;
 import com.starwars.planets.domain.model.swapi.SwapiPlanetPage;
 import com.starwars.planets.domain.service.swapi.SwapiService;
 import com.starwars.planets.port.adapters.repositories.planet.PlanetRepositoryMongoDB;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -38,12 +39,12 @@ public class PlanetDomainService implements PlanetService {
         return planet.orElseThrow(NotFoundException::new);
     }
 
-    public List<Planet> getPlanets() {
-        return planetRepositoryMongoDB.findAll();
+    public Page<Planet> getPlanets(Pageable pageable) {
+        return planetRepositoryMongoDB.findAll(pageable);
     }
 
-    public List<Planet> findByName(String name) {
-        return planetRepositoryMongoDB.findByNameMatchesRegexAndIgnoreCase(name);
+    public Page<Planet> findByName(String name, Pageable pageable) {
+        return planetRepositoryMongoDB.findByNameMatchesRegexAndIgnoreCase(name, pageable);
     }
 
     public void deleteById(String planetId) {

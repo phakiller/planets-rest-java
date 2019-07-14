@@ -3,10 +3,10 @@ package com.starwars.planets.port.adapters.rest;
 import com.starwars.planets.application.planet.PlanetApplicationService;
 import com.starwars.planets.application.planet.dto.PlanetCommand;
 import com.starwars.planets.application.planet.dto.PlanetDTO;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.ResponseEntity.ok;
@@ -29,8 +29,12 @@ public class PlanetController {
     }
 
     @GetMapping("")
-    public ResponseEntity<List<PlanetDTO>> getPlanets(@RequestParam(required = false) String name) {
-        return ok().body(planetApplicationService.getPlanets(name));
+    public ResponseEntity<Page<PlanetDTO>> getPlanets(
+            @RequestParam(required = false) String name,
+            @RequestParam(defaultValue = "0") Integer pageNumber,
+            @RequestParam(defaultValue = "20") Integer pageSize
+    ) {
+        return ok().body(planetApplicationService.getPlanets(name, PageRequest.of(pageNumber, pageSize)));
     }
 
     @GetMapping("/{planetId}")

@@ -6,11 +6,9 @@ import com.starwars.planets.application.planet.factory.PlanetCommandFactory;
 import com.starwars.planets.application.planet.factory.PlanetFactory;
 import com.starwars.planets.domain.model.planet.Planet;
 import com.starwars.planets.domain.service.planet.PlanetService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-
-import static java.util.stream.Collectors.toList;
 
 @Service
 public class PlanetApplicationService {
@@ -26,10 +24,9 @@ public class PlanetApplicationService {
         return PlanetFactory.toPlanetDTO(planet);
     }
 
-    public List<PlanetDTO> getPlanets(String name) {
-        List<Planet> planets = name != null ? planetService.findByName(name) : planetService.getPlanets();
-        return planets.stream()
-                .map(PlanetFactory::toPlanetDTO).collect(toList());
+    public Page<PlanetDTO> getPlanets(String name, Pageable pageable) {
+        Page<Planet> planets = name != null ? planetService.findByName(name, pageable) : planetService.getPlanets(pageable);
+        return planets.map(PlanetFactory::toPlanetDTO);
     }
 
     public PlanetDTO findPlanetById(String planetId) {
